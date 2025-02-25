@@ -2,13 +2,34 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 
+# Example for a user named "testuser"
+#user = User.objects.get(username='testuser')
+#Account.objects.create(
+#    user=user,
+ #   first_name=user.first_name or 'Default',  # Use default if empty
+#    last_name=user.last_name or 'User',
+#    account_number=str(uuid.uuid4())[:10],    # Generate a unique 10-character ID
+#    payment_number=str(uuid.uuid4())[:10],    # Generate a unique 10-character ID
+#    balance=50.00                            # Start with $50 as per your requirement
+#)
+#
+#user = User.objects.get(username='root')
+#Account.objects.create(
+#    user=user,
+#    first_name=user.first_name or 'Root',
+#    last_name=user.last_name or 'Admin',
+#    account_number=str(uuid.uuid4())[:10],
+#    payment_number=str(uuid.uuid4())[:10],
+#    balance=50.00
+#)
+
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)  # Links to Django’s built-in User model
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
     account_number = models.CharField(max_length=10, unique=True, default=uuid.uuid4)  # Unique account number
     payment_number = models.CharField(max_length=10, unique=True, default=uuid.uuid4)  # Unique payment number
-    balance = models.DecimalField(max_digits=12, decimal_places=2, default=50.00)  # Starts with $50 promo
+    balance = models.DecimalField(max_digits=10, decimal_places=2, default=50.00)  # Starts with $50 promo
     is_admin = models.BooleanField(default=False)  # For admin accounts
     is_suspended = models.BooleanField(default=False)  # For suspended accounts
 

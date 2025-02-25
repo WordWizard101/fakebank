@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fake Bank{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="{% if request.COOKIES.theme == 'dark' %}dark{% else %}light{% endif %}">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    {% block content %}{% endblock %}
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isDark = body.classList.contains('dark');
+            body.classList.toggle('dark', !isDark);
+            body.classList.toggle('light', isDark);
+            document.cookie = `theme=${isDark ? 'light' : 'dark'}; path=/`;
+        }
+    </script>
+</body>
+</html>

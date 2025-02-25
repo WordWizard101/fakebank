@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Login to Fake Bank</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username"><br>
+        <label>Password:</label>
+        <input type="password" name="password"><br>
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}
+<a href="{% url 'home' %}">Home</a>
+

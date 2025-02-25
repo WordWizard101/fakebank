@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome, {{ account.user.username }}</h1>
+    <p>Your balance: {{ currency_symbol }}{{ balance }} ({{ currency_label }})</p>
+    <a href="?currency=USD">USD</a> |
+    <a href="?currency=GBP">GBP</a> |
+    <a href="?currency=EUR">EUR</a>
+    <p>First Name: {{ account.first_name }}</p>
+    <p>Last Name: {{ account.last_name }}</p>
+    <p>Account Number: {{ account.account_number }}</p>
+    <p>Payment Number: {{ account.payment_number }}</p>
+    <h2>Transaction History</h2>
+    <ul>
+        {% for transaction in transactions %}
+            <li>{{ transaction.timestamp }} - {{ currency_symbol }}{{ transaction.amount }} to Account {{ transaction.to_account.account_number }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Manage Funds</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" name="amount" placeholder="Enter amount" step="0.01" required>
+        <button type="submit" name="action" value="deposit">Deposit</button>
+        <button type="submit" name="action" value="withdraw">Withdraw</button>
+    </form>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}
+
+   

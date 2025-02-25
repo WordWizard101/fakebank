@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Welcome to Fake Bank</h1>
+    <p>Total Non-Admin Accounts: {{ total_accounts }}</p>
+    <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'register' %}">Register</a>
+{% endblock %}
+<button id="theme-toggle">Toggle Theme</button>
+

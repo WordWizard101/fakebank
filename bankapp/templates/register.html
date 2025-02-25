@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Fake Bank</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+        <h1>Register for Fake Bank</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
+

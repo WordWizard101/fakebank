@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Close Account #{{ account.account_number }}</h1>
+    <p>Are you sure you want to close this account? This will set the balance to $0 and mark it as closed.</p>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Close</button>
+    </form>
+    <a href="{% url 'manage_accounts' %}">Back to Manage Accounts</a>
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

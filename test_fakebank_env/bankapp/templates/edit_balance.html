@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Edit Balance for Account #{{ account.account_number }}</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label>New Balance:</label>
+        <input type="number" name="balance" step="0.01" value="{{ account.balance }}" required><br>
+        <button type="submit">Update Balance</button>
+    </form>
+    <a href="{% url 'manage_accounts' %}">Back to Manage Accounts</a>
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

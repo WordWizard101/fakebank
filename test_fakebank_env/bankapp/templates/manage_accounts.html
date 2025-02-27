@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Manage User Accounts</h1>
+    <ul>
+        {% for account in accounts %}
+            <li>{{ account.user.username }} (Account #{{ account.account_number }}, Balance: ${{ account.balance }})
+                <a href="{% url 'edit_balance' account.id %}">Edit Balance</a> |
+                <a href="{% url 'close_account' account.id %}">Close</a> |
+                <a href="{% url 'suspend_account' account.id %}">Suspend</a> |
+                <a href="{% url 'delete_account' account.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

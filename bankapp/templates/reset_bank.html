@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Reset Bank</h1>
+    <p>{{ message }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirm Reset</button>
+    </form>
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+{% endblock %}

@@ -1,0 +1,47 @@
+body.light {
+    background: white;
+    color: black;
+}
+body.dark {
+    background: black;
+    color: white;
+}
+.theme-toggle {
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* General link styling */
+a {
+    display: block; /* Stack links vertically */
+    margin: 10px 0; /* Add vertical spacing between links (10px top and bottom) */
+    padding: 5px 10px; /* Add internal padding for better click area */
+    text-decoration: none; /* Remove default underline */
+    color: #0066cc; /* Blue color for links, can adjust to match your theme */
+    background-color: #f0f0f0; /* Light gray background for visibility */
+    border: 1px solid #ccc; /* Subtle border for separation */
+    border-radius: 4px; /* Rounded corners for a modern look */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover transition */
+}
+
+a:hover {
+    background-color: #0066cc; /* Darker blue on hover */
+    color: white; /* White text on hover for contrast */
+    text-decoration: underline; /* Underline on hover for additional feedback */
+}
+
+/* Ensure links in lists or other contexts maintain spacing */
+ul li a {
+    display: inline-block; /* Keep inline for list items if needed */
+    margin: 5px 0; /* Less vertical spacing in lists */
+}
+
+/* Specific adjustments for the admin dashboard and account page */
+.dashboard-links, .account-links {
+    margin-top: 20px; /* Extra spacing above link sections on dashboard and account pages */
+}
+
+/* Ensure theme toggle button doesn’t interfere with links */
+.theme-toggle {
+    margin-bottom: 20px; /* Space below theme toggle to separate from links */
+}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>All Bank Transactions</h1>
+    <ul>
+        {% for transaction in transactions %}
+            <li>{{ transaction.timestamp }} - From Account {{ transaction.from_account.account_number }} ({{ transaction.from_account.user.username }}) to Account {{ transaction.to_account.account_number }} ({{ transaction.to_account.user.username }}): ${{ transaction.amount }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'admin_dashboard' %}">Back to Dashboard</a>
+    <a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

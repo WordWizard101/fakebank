@@ -1,0 +1,21 @@
+Metadata-Version: 2.2
+Name: fakebank
+Version: 0.1.0
+Summary: A Django-based fake banking application for managing user accounts and transactions.
+Home-page: https://github.com/WordWizard101/fakebank
+Author: Matthew Storie
+Author-email: matthewrstorie@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.13
+Requires-Dist: Django==5.1.6
+Requires-Dist: psycopg2-binary
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
